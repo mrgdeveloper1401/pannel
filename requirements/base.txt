@@ -1,0 +1,6 @@
+django
+python-decouple
+djangorestframework
+psycopg2-binary
+djangorestframework-simplejwt
+drf-spectacular
