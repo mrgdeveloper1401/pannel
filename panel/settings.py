@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from datetime import timedelta
 from pathlib import Path
 from decouple import config
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     "log_app.apps.LogAppConfig",
     "util_app.apps.UtilAppConfig",
     "representative_app.apps.RepresentativeAppConfig",
+    "image_app.apps.ImageAppConfig",
 
     "rest_framework_simplejwt",
     "drf_spectacular",
@@ -54,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # افزودن LocaleMiddleware
 ]
 
 ROOT_URLCONF = 'panel.urls'
@@ -101,19 +104,29 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
-
+USE_L10N = True       # فعال‌سازی فرمت‌های محلی (مثل تاریخ و اعداد)
 USE_TZ = True
 
+
+# LANGUAGES = [
+#     ('fa', _('Persian')),
+#     ('en', _('English')),
+# ]
+
+# LOCALE_PATHS = [
+#     BASE_DIR / 'locale',  # مسیر ذخیره فایل‌های ترجمه
+# ]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

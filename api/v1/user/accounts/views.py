@@ -83,7 +83,10 @@ class UserLoginApiView(views.APIView):
                 )
 
         else:
-            raise exceptions.AuthenticationFailed()
+            raise exceptions.ValidationError(
+                detail={"message": _("invalid username and password")},
+                code=status.HTTP_400_BAD_REQUEST
+            )
 
 
 class UserProfileApiView(views.APIView):
@@ -92,6 +95,4 @@ class UserProfileApiView(views.APIView):
 
     def get(self, request):
         serializer = self.serializer_class(request.user)
-        print(len(connection.queries))
-        print(connection.queries)
         return response.Response(data=serializer.data)
