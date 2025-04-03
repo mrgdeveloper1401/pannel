@@ -5,8 +5,8 @@ from core_app.managers import CommonColumnManager
 
 
 class CommonColumnMixin(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, editable=False)
+    updated_at = models.DateTimeField(auto_now=True, editable=False)
     is_deleted = models.BooleanField(editable=False, null=True)
     deleted_at = models.DateTimeField(editable=False, null=True)
 

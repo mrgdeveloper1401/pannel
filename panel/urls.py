@@ -20,6 +20,7 @@ from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf.urls.static import static
+# from decouple import config
 
 from panel import settings
 
@@ -38,4 +39,5 @@ urlpatterns = [
 ] + swagger_ui + api_accounts
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(config('MEDIA_URL', cast=str), document_root=config("MEDIA_ROOT", cast=str))
 urlpatterns += debug_toolbar_urls()

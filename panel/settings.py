@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "util_app.apps.UtilAppConfig",
     "representative_app.apps.RepresentativeAppConfig",
     "image_app.apps.ImageAppConfig",
+    "subscription_app.apps.SubscriptionAppConfig",
 
     "rest_framework_simplejwt",
     "drf_spectacular",

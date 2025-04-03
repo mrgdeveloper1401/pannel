@@ -9,9 +9,11 @@ RUN apk update --no-cache && \
     apk add py3-pip && \
     pip install --upgrade pip && \
     pip install -r ./requirements/production.txt && \
-    adduse -D -H panel && \
+    adduser -D -H panel && \
     chown -R panel:panel /home/app && \
-    chmod +x ./start.sh
+    chmod +x ./start.sh && \
+    chmod +x ./manage.py && \
+    mkdir media
 
 
 ENV PYTHONDONOTWRITEBYTECODE=1

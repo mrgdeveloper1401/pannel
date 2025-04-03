@@ -2,3 +2,5 @@
 
 gunicorn
 django-cors-headers
+whitenoise
+color-log

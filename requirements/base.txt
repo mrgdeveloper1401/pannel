@@ -4,5 +4,5 @@ djangorestframework
 psycopg2-binary
 djangorestframework-simplejwt
 drf-spectacular
-pytest-djago
+pytest-django
 pillow
